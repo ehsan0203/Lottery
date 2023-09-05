@@ -9,6 +9,7 @@ namespace Tamrin13shahrivar.Services
     public class LotteryService : ILottoryService
     {
         private readonly LotteryRepository repo;
+<<<<<<< HEAD
         private readonly WinnerDbContext _context;
 
 
@@ -16,16 +17,17 @@ namespace Tamrin13shahrivar.Services
         {
             repo = new LotteryRepository(db);
           
-        }
-
-
-
-        public int Randomscode(int selectedMember)
+=======
+        public LotteryService(WinnerDbContext db)
         {
-            return new Random().Next(0,(int)selectedMember);
+            repo = new LotteryRepository(db);
+>>>>>>> parent of 10d5bf5 (Create Rendom But error)
         }
+ 
+
         public LotteryMember FindWinner(int lotteryId)
         {
+<<<<<<< HEAD
             List<LotteryMember> candid = new List<LotteryMember>();
             var lotteryMember = _context.LotteryMembers.Where(x => x.LotteryId == lotteryId).ToList();
             var winnerMember = _context.Winners.Where(x => x.lotteryId == lotteryId).Select(x => x.lotteryId).ToList();
@@ -42,6 +44,9 @@ namespace Tamrin13shahrivar.Services
 
             int random = Randomscode(candid.Count);
             return candid[random];
+=======
+            
+>>>>>>> parent of 10d5bf5 (Create Rendom But error)
         }
 
         Lottery ILottoryService.Create(Lottery lottery)

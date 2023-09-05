@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "F:\\GitHubtest\\Lottery\\Tamrin13shahrivar\\Tamrin13shahrivar\\Tamrin13shahrivar.csproj": {}
+    "C:\\Users\\Ehsan Power\\source\\repos\\Tamrin13shahrivar\\Tamrin13shahrivar\\Tamrin13shahrivar.csproj": {}
   },
   "projects": {
-    "F:\\GitHubtest\\Lottery\\Tamrin13shahrivar\\Tamrin13shahrivar\\Tamrin13shahrivar.csproj": {
+    "C:\\Users\\Ehsan Power\\source\\repos\\Tamrin13shahrivar\\Tamrin13shahrivar\\Tamrin13shahrivar.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\GitHubtest\\Lottery\\Tamrin13shahrivar\\Tamrin13shahrivar\\Tamrin13shahrivar.csproj",
+        "projectUniqueName": "C:\\Users\\Ehsan Power\\source\\repos\\Tamrin13shahrivar\\Tamrin13shahrivar\\Tamrin13shahrivar.csproj",
         "projectName": "Tamrin13shahrivar",
-        "projectPath": "F:\\GitHubtest\\Lottery\\Tamrin13shahrivar\\Tamrin13shahrivar\\Tamrin13shahrivar.csproj",
-        "packagesPath": "C:\\Users\\ehsan0203\\.nuget\\packages\\",
-        "outputPath": "F:\\GitHubtest\\Lottery\\Tamrin13shahrivar\\Tamrin13shahrivar\\obj\\",
+        "projectPath": "C:\\Users\\Ehsan Power\\source\\repos\\Tamrin13shahrivar\\Tamrin13shahrivar\\Tamrin13shahrivar.csproj",
+        "packagesPath": "C:\\Users\\Ehsan Power\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ehsan Power\\source\\repos\\Tamrin13shahrivar\\Tamrin13shahrivar\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ehsan0203\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Ehsan Power\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -86,7 +87,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
         }
       }
     }
