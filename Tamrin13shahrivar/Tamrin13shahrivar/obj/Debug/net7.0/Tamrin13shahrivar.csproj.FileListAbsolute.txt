@@ -150,3 +150,6 @@ F:\GitHubtest\Lottery\Tamrin13shahrivar\Tamrin13shahrivar\obj\Debug\net7.0\scope
 F:\GitHubtest\Lottery\Tamrin13shahrivar\Tamrin13shahrivar\obj\Debug\net7.0\Tamrin13shahrivar.csproj.CopyComplete
 F:\GitHubtest\Lottery\Tamrin13shahrivar\Tamrin13shahrivar\obj\Debug\net7.0\Tamrin13shahrivar.genruntimeconfig.cache
 F:\GitHubtest\Lottery\Tamrin13shahrivar\Tamrin13shahrivar\obj\Debug\net7.0\ref\Tamrin13shahrivar.dll
+F:\GitHubtest\Lottery\Tamrin13shahrivar\Tamrin13shahrivar\bin\Debug\net7.0\DocumentFormat.OpenXml.dll
+F:\GitHubtest\Lottery\Tamrin13shahrivar\Tamrin13shahrivar\bin\Debug\net7.0\Microsoft.Azure.Amqp.dll
+F:\GitHubtest\Lottery\Tamrin13shahrivar\Tamrin13shahrivar\bin\Debug\net7.0\System.IO.Packaging.dll

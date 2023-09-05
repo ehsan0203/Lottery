@@ -12,15 +12,11 @@ namespace Tamrin13shahrivar.Repositoreis
         }
         public LotteryMember Create(LotteryMember item)
         {
-            try
-            {
+
                 db.LotteryMembers.Add(item);
                 db.SaveChanges();
-            }
-            catch (Exception ex)
-            {
 
-            }
+
             return item;
         }
     }

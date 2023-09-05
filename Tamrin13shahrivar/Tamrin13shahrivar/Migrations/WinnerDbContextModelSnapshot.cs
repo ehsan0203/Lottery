@@ -80,6 +80,9 @@ namespace Tamrin13shahrivar.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("LotteryId")
+                        .HasColumnType("int");
+
                     b.Property<string>("MemberFullName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -87,28 +90,25 @@ namespace Tamrin13shahrivar.Migrations
                     b.Property<int>("NumberMemberShares")
                         .HasColumnType("int");
 
-                    b.Property<int>("lotteryId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("lotteryId");
+                    b.HasIndex("LotteryId");
 
                     b.ToTable("LotteryMembers");
                 });
 
             modelBuilder.Entity("Tamrin13shahrivar.Model.Winner", b =>
                 {
-                    b.Property<int>("WinnerId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("WinnerId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("lotteryId")
                         .HasColumnType("int");
 
-                    b.HasKey("WinnerId");
+                    b.HasKey("Id");
 
                     b.HasIndex("lotteryId");
 
@@ -129,8 +129,8 @@ namespace Tamrin13shahrivar.Migrations
             modelBuilder.Entity("Tamrin13shahrivar.Model.LotteryMember", b =>
                 {
                     b.HasOne("Tamrin13shahrivar.Model.Lottery", "Lottery")
-                        .WithMany()
-                        .HasForeignKey("lotteryId")
+                        .WithMany("LotteryMembers")
+                        .HasForeignKey("LotteryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -146,6 +146,11 @@ namespace Tamrin13shahrivar.Migrations
                         .IsRequired();
 
                     b.Navigation("Lottery");
+                });
+
+            modelBuilder.Entity("Tamrin13shahrivar.Model.Lottery", b =>
+                {
+                    b.Navigation("LotteryMembers");
                 });
 #pragma warning restore 612, 618
         }

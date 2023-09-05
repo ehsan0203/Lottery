@@ -20,18 +20,22 @@ namespace Tamrin13shahrivar.Services
         public LotteryMember Create(LotteryMember item)
         {
             item = repo.Create(item);
-            DateTime data = new DateTime(DateTime.Now.Year, DateTime.Now.Month,1);
-            
-           Lottery lotteryItem =  repoLottery.Get(item.Id);
-            for (int i = 0; i < lotteryItem.NumberShares; i++)
+            DateTime currentDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+
+            Lottery lotteryItem = repoLottery.Get(item.LotteryId);
+
+            // تعداد ماه‌ها را بر اساس تعداد سهام عضو محاسبه کنید
+            int numberOfMonths = item.NumberMemberShares;
+
+            for (int i = 0; i < numberOfMonths; i++)
             {
-                data = data.AddMonths(1);
+                currentDate = currentDate.AddMonths(1);
                 repoInstallment.Create(new InstallMents()
                 {
-                    DateLottery = data,
+                    DateLottery = currentDate,
                     LotteryMemberId = item.Id,
-                    Mount = item.NumberMemberShares * lotteryItem.AmountShares
-                }) ;
+                    Mount = lotteryItem.AmountShares
+                });
             }
 
             return item;

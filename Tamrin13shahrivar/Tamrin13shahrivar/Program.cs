@@ -11,7 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<WinnerDbContext>(options =>
 {
-    options.UseSqlServer("Data Source=DESKTOP-E8NH7UD\\SQL2019;Initial Catalog=Lottery;Integrated Security=True;Trust Server Certificate=True");
+    options.UseSqlServer("Data Source=EHSAN;Initial Catalog=Lottery;Integrated Security=True;Trust Server Certificate=True");
 });
 var app = builder.Build();
 

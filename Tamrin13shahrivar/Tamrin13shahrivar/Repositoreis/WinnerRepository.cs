@@ -13,15 +13,11 @@ namespace Tamrin13shahrivar.Repositoreis
         }
         public Winner Create(Winner item)
         {
-            try
-            {
+
                 db.Winners.Add(item);
                 db.SaveChanges();
-            }
-            catch (Exception ex)
-            {
 
-            }
+ 
             return item;
         }
     }

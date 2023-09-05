@@ -12,10 +12,10 @@ namespace Tamrin13shahrivar.Services
         private readonly WinnerDbContext _context;
 
 
-        public LotteryService(WinnerDbContext db, WinnerDbContext context)
+        public LotteryService(WinnerDbContext db)
         {
             repo = new LotteryRepository(db);
-            _context = context;
+          
         }
 
 
@@ -27,7 +27,7 @@ namespace Tamrin13shahrivar.Services
         public LotteryMember FindWinner(int lotteryId)
         {
             List<LotteryMember> candid = new List<LotteryMember>();
-            var lotteryMember = _context.LotteryMembers.Where(x => x.lotteryId == lotteryId).ToList();
+            var lotteryMember = _context.LotteryMembers.Where(x => x.LotteryId == lotteryId).ToList();
             var winnerMember = _context.Winners.Where(x => x.lotteryId == lotteryId).Select(x => x.lotteryId).ToList();
 
             candid.RemoveAll(x => winnerMember.Contains(lotteryId));

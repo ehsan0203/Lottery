@@ -9,7 +9,8 @@
         public int NumberShares { get; set; }
 
         public long AmountShares { get; set; }
-
+    
+            public ICollection<LotteryMember> LotteryMembers { get; set; }
 
     }
 }

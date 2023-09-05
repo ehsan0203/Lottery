@@ -19,7 +19,7 @@ namespace Tamrin13shahrivar.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(LotteryMember lottery)
+        public async Task<IActionResult> Create([FromBody]LotteryMember lottery)
         {
             var result =  memberService.Create(lottery);
             return Ok(result);
