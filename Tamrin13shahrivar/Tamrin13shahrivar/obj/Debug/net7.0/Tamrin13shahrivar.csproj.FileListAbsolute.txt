@@ -75,6 +75,7 @@ C:\Users\Ehsan Power\source\repos\Tamrin13shahrivar\Tamrin13shahrivar\obj\Debug\
 C:\Users\Ehsan Power\source\repos\Tamrin13shahrivar\Tamrin13shahrivar\obj\Debug\net7.0\Tamrin13shahrivar.genruntimeconfig.cache
 C:\Users\Ehsan Power\source\repos\Tamrin13shahrivar\Tamrin13shahrivar\obj\Debug\net7.0\ref\Tamrin13shahrivar.dll
 <<<<<<< HEAD
+<<<<<<< HEAD
 F:\GitHubtest\Lottery\Tamrin13shahrivar\Tamrin13shahrivar\obj\Debug\net7.0\Tamrin13shahrivar.csproj.AssemblyReference.cache
 F:\GitHubtest\Lottery\Tamrin13shahrivar\Tamrin13shahrivar\obj\Debug\net7.0\Tamrin13shahrivar.GeneratedMSBuildEditorConfig.editorconfig
 F:\GitHubtest\Lottery\Tamrin13shahrivar\Tamrin13shahrivar\obj\Debug\net7.0\Tamrin13shahrivar.AssemblyInfoInputs.cache
@@ -154,5 +155,7 @@ F:\GitHubtest\Lottery\Tamrin13shahrivar\Tamrin13shahrivar\obj\Debug\net7.0\ref\T
 F:\GitHubtest\Lottery\Tamrin13shahrivar\Tamrin13shahrivar\bin\Debug\net7.0\DocumentFormat.OpenXml.dll
 F:\GitHubtest\Lottery\Tamrin13shahrivar\Tamrin13shahrivar\bin\Debug\net7.0\Microsoft.Azure.Amqp.dll
 F:\GitHubtest\Lottery\Tamrin13shahrivar\Tamrin13shahrivar\bin\Debug\net7.0\System.IO.Packaging.dll
+=======
+>>>>>>> parent of 10d5bf5 (Create Rendom But error)
 =======
 >>>>>>> parent of 10d5bf5 (Create Rendom But error)

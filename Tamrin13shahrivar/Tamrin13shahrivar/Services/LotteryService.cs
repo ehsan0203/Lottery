@@ -10,6 +10,7 @@ namespace Tamrin13shahrivar.Services
     {
         private readonly LotteryRepository repo;
 <<<<<<< HEAD
+<<<<<<< HEAD
         private readonly WinnerDbContext _context;
 
 
@@ -22,11 +23,17 @@ namespace Tamrin13shahrivar.Services
         {
             repo = new LotteryRepository(db);
 >>>>>>> parent of 10d5bf5 (Create Rendom But error)
+=======
+        public LotteryService(WinnerDbContext db)
+        {
+            repo = new LotteryRepository(db);
+>>>>>>> parent of 10d5bf5 (Create Rendom But error)
         }
  
 
         public LotteryMember FindWinner(int lotteryId)
         {
+<<<<<<< HEAD
 <<<<<<< HEAD
             List<LotteryMember> candid = new List<LotteryMember>();
             var lotteryMember = _context.LotteryMembers.Where(x => x.LotteryId == lotteryId).ToList();
@@ -44,6 +51,9 @@ namespace Tamrin13shahrivar.Services
 
             int random = Randomscode(candid.Count);
             return candid[random];
+=======
+            
+>>>>>>> parent of 10d5bf5 (Create Rendom But error)
 =======
             
 >>>>>>> parent of 10d5bf5 (Create Rendom But error)
