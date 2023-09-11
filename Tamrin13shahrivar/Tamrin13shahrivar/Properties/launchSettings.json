@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Tamrin13shahrivar": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:7320;http://localhost:7321"
+    }
+  }
+}
