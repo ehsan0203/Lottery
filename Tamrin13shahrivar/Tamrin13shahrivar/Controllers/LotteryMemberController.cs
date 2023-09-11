@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Tamrin13shahrivar.Date;
 using Tamrin13shahrivar.Interface;
 using Tamrin13shahrivar.Model;
+using Tamrin13shahrivar.Model.DTO;
 using Tamrin13shahrivar.Services;
 
 namespace Tamrin13shahrivar.Controllers
@@ -19,9 +20,16 @@ namespace Tamrin13shahrivar.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody]LotteryMember lottery)
+        public async Task<IActionResult> Create(LotteyMemberDTO lottery)
         {
-            var result =  memberService.Create(lottery);
+
+            var domain = new LotteryMember { MemberFullName = lottery.MemberFullName , NumberMemberShares=lottery.NumberMemberShares
+            ,lotteryId=lottery.lotteryId};
+            var result =  memberService.Create(domain);
+            if (result.NumberMemberShares<domain.NumberMemberShares)
+            {
+                return BadRequest($"شما بیش از اندازه انتخاب کردید مقدار باقی مانده : {result.NumberMemberShares}");
+            }
             return Ok(result);
         }
     }

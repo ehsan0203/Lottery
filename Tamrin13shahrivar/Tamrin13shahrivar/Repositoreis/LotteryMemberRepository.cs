@@ -12,12 +12,31 @@ namespace Tamrin13shahrivar.Repositoreis
         }
         public LotteryMember Create(LotteryMember item)
         {
-
+            try
+            {
+               
                 db.LotteryMembers.Add(item);
                 db.SaveChanges();
+                
+            }
+            catch (Exception ex)
+            {
 
-
+            }
             return item;
+        }
+
+        public LotteryMember SumShares(LotteryMember item,int id)
+        {
+
+            var sumshares = db.LotteryMembers.Where(x=>x.lotteryId==id).Sum(x => x.NumberMemberShares);
+            var result = new LotteryMember()
+            {
+                Id = item.Id,
+                NumberMemberShares = sumshares
+            };
+
+            return result;
         }
     }
 }

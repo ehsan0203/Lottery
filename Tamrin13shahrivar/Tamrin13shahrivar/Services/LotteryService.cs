@@ -9,54 +9,36 @@ namespace Tamrin13shahrivar.Services
     public class LotteryService : ILottoryService
     {
         private readonly LotteryRepository repo;
-<<<<<<< HEAD
-<<<<<<< HEAD
         private readonly WinnerDbContext _context;
-
-
-        public LotteryService(WinnerDbContext db)
+        public LotteryService(WinnerDbContext db, WinnerDbContext context = null)
         {
             repo = new LotteryRepository(db);
-          
-=======
-        public LotteryService(WinnerDbContext db)
-        {
-            repo = new LotteryRepository(db);
->>>>>>> parent of 10d5bf5 (Create Rendom But error)
-=======
-        public LotteryService(WinnerDbContext db)
-        {
-            repo = new LotteryRepository(db);
->>>>>>> parent of 10d5bf5 (Create Rendom But error)
+            _context = context;
         }
- 
+        public int RandomsCode(int selectmember)
+        {
+            return new Random().Next(0,(int)selectmember);
+        }
 
         public LotteryMember FindWinner(int lotteryId)
         {
-<<<<<<< HEAD
-<<<<<<< HEAD
-            List<LotteryMember> candid = new List<LotteryMember>();
-            var lotteryMember = _context.LotteryMembers.Where(x => x.LotteryId == lotteryId).ToList();
-            var winnerMember = _context.Winners.Where(x => x.lotteryId == lotteryId).Select(x => x.lotteryId).ToList();
-
-            candid.RemoveAll(x => winnerMember.Contains(lotteryId));
-
-            foreach (var item in lotteryMember)
+            List<LotteryMember> Candid = new List<LotteryMember>();
+            var lotorymember = _context.LotteryMembers.Where(x=>x.lotteryId == lotteryId).ToList();
+            var winnerMember = _context.Winners.Where(x=>x.lotteryId==lotteryId).ToList();
+            foreach(var item in lotorymember)
             {
-                for (int j = 1; j <= item.NumberMemberShares; j++)
+                for(int j = 1; j <= item.NumberMemberShares; j++)
                 {
-                    candid.Add(item);
+                    Candid.Add(item);
                 }
             }
-
-            int random = Randomscode(candid.Count);
-            return candid[random];
-=======
-            
->>>>>>> parent of 10d5bf5 (Create Rendom But error)
-=======
-            
->>>>>>> parent of 10d5bf5 (Create Rendom But error)
+            foreach(var item in winnerMember)
+            {
+                var removeitem = Candid.FirstOrDefault(x => x.Id == item.Id);
+                Candid.Remove(removeitem);
+            }
+            int random = RandomsCode(Candid.Count);
+            return Candid[random];
         }
 
         Lottery ILottoryService.Create(Lottery lottery)

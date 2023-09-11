@@ -14,6 +14,7 @@ namespace Tamrin13shahrivar.Repositoreis
         {
             try
             {
+
                 db.Lottery.Add(item);
                 db.SaveChanges();
             }
@@ -26,7 +27,8 @@ namespace Tamrin13shahrivar.Repositoreis
         public Lottery Get(int id)
         {
  
-            return db.Lottery.FirstOrDefault(x => x.Id == id);
+            return db.Lottery.FirstOrDefault(x => x.Id == id)!;
         }
+
     }
 }

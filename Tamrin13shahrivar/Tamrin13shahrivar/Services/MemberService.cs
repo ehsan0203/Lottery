@@ -19,26 +19,59 @@ namespace Tamrin13shahrivar.Services
 
         public LotteryMember Create(LotteryMember item)
         {
-            item = repo.Create(item);
-            DateTime currentDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
-
-            Lottery lotteryItem = repoLottery.Get(item.LotteryId);
-
-            // تعداد ماه‌ها را بر اساس تعداد سهام عضو محاسبه کنید
-            int numberOfMonths = item.NumberMemberShares;
-
-            for (int i = 0; i < numberOfMonths; i++)
+            Lottery lotteryItemtest = repoLottery.Get(item.lotteryId);
+            var sumtest = repo.SumShares(item,item.lotteryId);
+            int Average = sumtest.NumberMemberShares + item.NumberMemberShares;
+            var result = new LotteryMember()
             {
-                currentDate = currentDate.AddMonths(1);
-                repoInstallment.Create(new InstallMents()
-                {
-                    DateLottery = currentDate,
-                    LotteryMemberId = item.Id,
-                    Mount = lotteryItem.AmountShares
-                });
+                Id = item.Id,
+                NumberMemberShares = lotteryItemtest.NumberShares-sumtest.NumberMemberShares
+            };
+            if (Average<= lotteryItemtest.NumberShares)
+            {
+                item = repo.Create(item);
             }
+            else
+            {
+                return result;
+            }
+            DateTime data = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+
+            Lottery lotteryItem = repoLottery.Get(item.lotteryId);
+            
+            var sum = repo.SumShares(item, item.lotteryId);
+            var menha = lotteryItem.NumberShares - sum.NumberMemberShares ;
+
+
+
+            for (int i = 0; i < item.NumberMemberShares; i++)
+                {
+                    if(sum.NumberMemberShares <= lotteryItem.NumberShares)
+                    {
+                        data = data.AddMonths(1);
+                        repoInstallment.Create(new InstallMents()
+                        {
+                            DateLottery = data,
+                            LotteryMemberId = item.Id,
+                            Mount = item.NumberMemberShares * lotteryItem.AmountShares
+                        });
+                    } else
+                    {
+                    var result1 = new LotteryMember()
+                    {
+                        Id = item.Id,
+                        NumberMemberShares = menha
+                    };
+
+                    return result1;
+                    }
+
+            }
+
+
 
             return item;
         }
+
     }
 }
