@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Tamrin13shahrivar.Date;
 
@@ -11,9 +12,11 @@ using Tamrin13shahrivar.Date;
 namespace Tamrin13shahrivar.Migrations
 {
     [DbContext(typeof(WinnerDbContext))]
-    partial class WinnerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230917101714_v4")]
+    partial class v4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

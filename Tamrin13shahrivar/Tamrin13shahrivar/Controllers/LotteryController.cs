@@ -58,5 +58,7 @@ namespace Tamrin13shahrivar.Controllers
             return NotFound("این لاتاری وجود خارجی ندارد یا عضو دارد");
         }
 
+
+
     }
 }

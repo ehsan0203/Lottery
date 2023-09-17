@@ -10,6 +10,7 @@ namespace Tamrin13shahrivar.Services
         private readonly LotteryMemberRepository repo;
         private readonly LotteryRepository repoLottery;
         private readonly InstallMentsRepository repoInstallment;
+        private readonly WinnerRepository repoWinner;
         public MemberService(WinnerDbContext db)
         {
             repo = new LotteryMemberRepository(db);
@@ -20,14 +21,14 @@ namespace Tamrin13shahrivar.Services
         public LotteryMember Create(LotteryMember item)
         {
             Lottery lotteryItemtest = repoLottery.Get(item.lotteryId);
-            var sumtest = repo.SumShares(item,item.lotteryId);
+            var sumtest = repo.SumShares(item, item.lotteryId);
             int Average = sumtest.NumberMemberShares + item.NumberMemberShares;
             var result = new LotteryMember()
             {
                 Id = item.Id,
-                NumberMemberShares = lotteryItemtest.NumberShares-sumtest.NumberMemberShares
+                NumberMemberShares = lotteryItemtest.NumberShares - sumtest.NumberMemberShares
             };
-            if (Average<= lotteryItemtest.NumberShares)
+            if (Average <= lotteryItemtest.NumberShares)
             {
                 item = repo.Create(item);
             }
@@ -38,33 +39,37 @@ namespace Tamrin13shahrivar.Services
             DateTime data = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
 
             Lottery lotteryItem = repoLottery.Get(item.lotteryId);
-            
+
             var sum = repo.SumShares(item, item.lotteryId);
-            var menha = lotteryItem.NumberShares - sum.NumberMemberShares ;
+            var menha = lotteryItem.NumberShares - sum.NumberMemberShares;
 
-
-
-            for (int i = 0; i < item.NumberMemberShares; i++)
+            if (sum.NumberMemberShares <= lotteryItem.NumberShares)
+            {
+                for (int i = 0; i < lotteryItem.NumberShares; i++)
                 {
-                    if(sum.NumberMemberShares <= lotteryItem.NumberShares)
-                    {
-                        data = data.AddMonths(1);
-                        repoInstallment.Create(new InstallMents()
-                        {
-                            DateLottery = data,
-                            LotteryMemberId = item.Id,
-                            Mount = item.NumberMemberShares * lotteryItem.AmountShares
-                        });
-                    } else
-                    {
-                    var result1 = new LotteryMember()
-                    {
-                        Id = item.Id,
-                        NumberMemberShares = menha
-                    };
 
-                    return result1;
-                    }
+                    data = data.AddMonths(1);
+                    repoInstallment.Create(new InstallMents()
+                    {
+                        NumLottery=item.lotteryId,
+                        DateLottery = data,
+                        LotteryMemberId = item.Id,
+                        Mount = item.NumberMemberShares * lotteryItem.AmountShares
+                    });
+
+
+
+                }
+            }
+            else
+            {
+                var result1 = new LotteryMember()
+                {
+                    Id = item.Id,
+                    NumberMemberShares = menha
+                };
+                return result1;
+
 
             }
 
@@ -76,8 +81,13 @@ namespace Tamrin13shahrivar.Services
         public LotteryMember Delete(int id)
         {
             repoInstallment.Delete(id);
-            
+
             return repo.Delete(id);
+        }
+
+        List<Winner> IMemberService.FindWinner(int lotteryId)
+        {
+            return repo.RunMonthlyLottery(lotteryId);
         }
     }
 }

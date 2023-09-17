@@ -10,7 +10,7 @@ namespace Tamrin13shahrivar.Model
 
         public int NumberMemberShares { get; set; }
 
-
+        public long CodeMelli { get; set; }
         public int lotteryId { get; set; }
         
         public virtual Lottery Lottery { get; set; }    

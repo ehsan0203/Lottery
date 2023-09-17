@@ -7,5 +7,8 @@ namespace Tamrin13shahrivar.Interface
         LotteryMember Create(LotteryMember item);
 
         LotteryMember Delete(int id);
+        List<Winner> FindWinner(int lotteryId);
+
+
     }
 }

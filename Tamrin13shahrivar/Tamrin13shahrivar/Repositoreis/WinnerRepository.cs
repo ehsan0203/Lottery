@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.EntityFrameworkCore;
 using Tamrin13shahrivar.Date;
 using Tamrin13shahrivar.Model;
 
@@ -24,5 +25,7 @@ namespace Tamrin13shahrivar.Repositoreis
             }
             return item;
         }
+
+
     }
 }

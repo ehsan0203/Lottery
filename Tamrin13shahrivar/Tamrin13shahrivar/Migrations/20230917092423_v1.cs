@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Tamrin13shahrivar.Migrations
 {
     /// <inheritdoc />
-    public partial class Inite : Migration
+    public partial class v1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -34,6 +34,7 @@ namespace Tamrin13shahrivar.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     MemberFullName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     NumberMemberShares = table.Column<int>(type: "int", nullable: false),
+                    CodeMelli = table.Column<long>(type: "bigint", nullable: false),
                     lotteryId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -48,31 +49,14 @@ namespace Tamrin13shahrivar.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Winners",
-                columns: table => new
-                {
-                    WinnerId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    lotteryId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Winners", x => x.WinnerId);
-                    table.ForeignKey(
-                        name: "FK_Winners_Lottery_lotteryId",
-                        column: x => x.lotteryId,
-                        principalTable: "Lottery",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "InstallMents",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DateLottery = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    LotteryName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    NumLottery = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LotteryMemberId = table.Column<int>(type: "int", nullable: false),
                     Mount = table.Column<long>(type: "bigint", nullable: false),
                     Code = table.Column<int>(type: "int", nullable: false)
@@ -83,6 +67,27 @@ namespace Tamrin13shahrivar.Migrations
                     table.ForeignKey(
                         name: "FK_InstallMents_LotteryMembers_LotteryMemberId",
                         column: x => x.LotteryMemberId,
+                        principalTable: "LotteryMembers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Winners",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    MonthWin = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    MemberWinner = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LotteryMemberid = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Winners", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Winners_LotteryMembers_LotteryMemberid",
+                        column: x => x.LotteryMemberid,
                         principalTable: "LotteryMembers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -99,9 +104,9 @@ namespace Tamrin13shahrivar.Migrations
                 column: "lotteryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Winners_lotteryId",
+                name: "IX_Winners_LotteryMemberid",
                 table: "Winners",
-                column: "lotteryId");
+                column: "LotteryMemberid");
         }
 
         /// <inheritdoc />

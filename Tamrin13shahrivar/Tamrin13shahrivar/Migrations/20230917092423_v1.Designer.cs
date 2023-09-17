@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Tamrin13shahrivar.Date;
 
@@ -11,9 +12,11 @@ using Tamrin13shahrivar.Date;
 namespace Tamrin13shahrivar.Migrations
 {
     [DbContext(typeof(WinnerDbContext))]
-    partial class WinnerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230917092423_v1")]
+    partial class v1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,11 +42,16 @@ namespace Tamrin13shahrivar.Migrations
                     b.Property<int>("LotteryMemberId")
                         .HasColumnType("int");
 
+                    b.Property<string>("LotteryName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<long>("Mount")
                         .HasColumnType("bigint");
 
-                    b.Property<int>("NumLottery")
-                        .HasColumnType("int");
+                    b.Property<string>("NumLottery")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -120,9 +128,6 @@ namespace Tamrin13shahrivar.Migrations
 
                     b.Property<DateTime>("MonthWin")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("NumLottery")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

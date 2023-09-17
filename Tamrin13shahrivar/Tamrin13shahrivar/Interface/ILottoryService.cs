@@ -8,6 +8,6 @@ namespace Tamrin13shahrivar.Interface
         Lottery Update(int id, Lottery lottery);
         Lottery Delete(int id);
 
-        LotteryMember FindWinner(int lotteryId);
+
     }
 }

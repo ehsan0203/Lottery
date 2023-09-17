@@ -12,8 +12,8 @@ using Tamrin13shahrivar.Date;
 namespace Tamrin13shahrivar.Migrations
 {
     [DbContext(typeof(WinnerDbContext))]
-    [Migration("20230904151314_Inite")]
-    partial class Inite
+    [Migration("20230917092623_v3")]
+    partial class v3
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -44,6 +44,9 @@ namespace Tamrin13shahrivar.Migrations
 
                     b.Property<long>("Mount")
                         .HasColumnType("bigint");
+
+                    b.Property<int>("NumLottery")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -83,6 +86,9 @@ namespace Tamrin13shahrivar.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<long>("CodeMelli")
+                        .HasColumnType("bigint");
+
                     b.Property<string>("MemberFullName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -102,18 +108,25 @@ namespace Tamrin13shahrivar.Migrations
 
             modelBuilder.Entity("Tamrin13shahrivar.Model.Winner", b =>
                 {
-                    b.Property<int>("WinnerId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("WinnerId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("lotteryId")
+                    b.Property<int>("LotteryMemberid")
                         .HasColumnType("int");
 
-                    b.HasKey("WinnerId");
+                    b.Property<string>("MemberWinner")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasIndex("lotteryId");
+                    b.Property<DateTime>("MonthWin")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LotteryMemberid");
 
                     b.ToTable("Winners");
                 });
@@ -142,13 +155,13 @@ namespace Tamrin13shahrivar.Migrations
 
             modelBuilder.Entity("Tamrin13shahrivar.Model.Winner", b =>
                 {
-                    b.HasOne("Tamrin13shahrivar.Model.Lottery", "Lottery")
+                    b.HasOne("Tamrin13shahrivar.Model.LotteryMember", "LotteryMember")
                         .WithMany()
-                        .HasForeignKey("lotteryId")
+                        .HasForeignKey("LotteryMemberid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Lottery");
+                    b.Navigation("LotteryMember");
                 });
 #pragma warning restore 612, 618
         }

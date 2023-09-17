@@ -24,7 +24,7 @@ namespace Tamrin13shahrivar.Controllers
         {
 
             var domain = new LotteryMember { MemberFullName = lottery.MemberFullName , NumberMemberShares=lottery.NumberMemberShares
-            ,lotteryId=lottery.lotteryId};
+            ,lotteryId=lottery.lotteryId,CodeMelli=lottery.CodeMelli};
             var result =  memberService.Create(domain);
             if (result.NumberMemberShares<domain.NumberMemberShares)
             {
@@ -42,6 +42,11 @@ namespace Tamrin13shahrivar.Controllers
                 return Ok(result);
             }
             return BadRequest();
+        }
+        [HttpGet("Winner")]
+        public async Task<IActionResult> Winner(int id)
+        {
+            return Ok(memberService.FindWinner(id));
         }
     }
 }
