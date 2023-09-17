@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SKz/uJbhag8tlBV/D7pffGrawpEjFL0Z6LFM6IVa2RNUoMbVOpw4bGf9aCwxV+ijAYwAhf0VMB0+kmUSb/kn7g==",
+  "dgSpecHash": "7GahrsZN2YuqCbWv2GrDy7FRP8+9zVmwhNuWxhevccN9JwnyqC0/3fD5kwbzg+DmeAkICNu2HXsEm2RwJOogGQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ehsan0203\\Desktop\\Lottery-6cc569e29045adff489e4a67292aa173991c3858\\Tamrin13shahrivar\\Tamrin13shahrivar\\Tamrin13shahrivar.csproj",
+  "projectFilePath": "F:\\GitHubtest\\Lottery\\Tamrin13shahrivar\\Tamrin13shahrivar\\Tamrin13shahrivar.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ehsan0203\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\ehsan0203\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

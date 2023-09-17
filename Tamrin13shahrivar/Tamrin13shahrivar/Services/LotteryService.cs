@@ -45,5 +45,15 @@ namespace Tamrin13shahrivar.Services
         {
             return repo.Create(lottery);
         }
+
+        public Lottery Update(int id, Lottery lottery)
+        {
+            return repo.Update(id, lottery);
+        }
+
+        public Lottery Delete(int id)
+        {
+            return repo.Delete(id);
+        }
     }
 }

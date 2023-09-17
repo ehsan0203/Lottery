@@ -3924,11 +3924,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ehsan0203\\Desktop\\Lottery-6cc569e29045adff489e4a67292aa173991c3858\\Tamrin13shahrivar\\Tamrin13shahrivar\\Tamrin13shahrivar.csproj",
+      "projectUniqueName": "F:\\GitHubtest\\Lottery\\Tamrin13shahrivar\\Tamrin13shahrivar\\Tamrin13shahrivar.csproj",
       "projectName": "Tamrin13shahrivar",
-      "projectPath": "C:\\Users\\ehsan0203\\Desktop\\Lottery-6cc569e29045adff489e4a67292aa173991c3858\\Tamrin13shahrivar\\Tamrin13shahrivar\\Tamrin13shahrivar.csproj",
+      "projectPath": "F:\\GitHubtest\\Lottery\\Tamrin13shahrivar\\Tamrin13shahrivar\\Tamrin13shahrivar.csproj",
       "packagesPath": "C:\\Users\\ehsan0203\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ehsan0203\\Desktop\\Lottery-6cc569e29045adff489e4a67292aa173991c3858\\Tamrin13shahrivar\\Tamrin13shahrivar\\obj\\",
+      "outputPath": "F:\\GitHubtest\\Lottery\\Tamrin13shahrivar\\Tamrin13shahrivar\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ehsan0203\\AppData\\Roaming\\NuGet\\NuGet.Config",
