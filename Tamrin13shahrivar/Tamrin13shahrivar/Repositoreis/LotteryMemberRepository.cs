@@ -38,5 +38,16 @@ namespace Tamrin13shahrivar.Repositoreis
 
             return result;
         }
+        public LotteryMember Delete(int id)
+        {
+            var result = db.LotteryMembers.FirstOrDefault(x => x.Id==id);
+            if (result == null)
+            {
+                return null;
+            }
+            db.LotteryMembers.Remove(result);
+            db.SaveChanges();
+            return result;
+        }
     }
 }

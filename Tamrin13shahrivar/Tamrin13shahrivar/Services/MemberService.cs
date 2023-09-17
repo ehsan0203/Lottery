@@ -73,5 +73,11 @@ namespace Tamrin13shahrivar.Services
             return item;
         }
 
+        public LotteryMember Delete(int id)
+        {
+            repoInstallment.Delete(id);
+            
+            return repo.Delete(id);
+        }
     }
 }

@@ -23,5 +23,13 @@ namespace Tamrin13shahrivar.Repositoreis
             }
             return item;
         }
+
+        public InstallMents Delete(int id)
+        {
+            var result =db.InstallMents.FirstOrDefault(x => x.LotteryMemberId == id);
+            db.InstallMents.Remove(result);
+            db.SaveChanges() ;
+            return result;
+        }
     }
 }

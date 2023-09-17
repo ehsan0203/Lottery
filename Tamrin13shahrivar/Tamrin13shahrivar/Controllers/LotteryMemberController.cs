@@ -19,7 +19,7 @@ namespace Tamrin13shahrivar.Controllers
            memberService = new MemberService(db);
         }
 
-        [HttpPost]
+        [HttpPost("Creat")]
         public async Task<IActionResult> Create(LotteyMemberDTO lottery)
         {
 
@@ -31,6 +31,17 @@ namespace Tamrin13shahrivar.Controllers
                 return BadRequest($"شما بیش از اندازه انتخاب کردید مقدار باقی مانده : {result.NumberMemberShares}");
             }
             return Ok(result);
+        }
+        [HttpDelete("Delete")]
+        public async Task<IActionResult> Delete(int id)
+        {
+
+            var result = memberService.Delete(id);
+            if(result != null)
+            {
+                return Ok(result);
+            }
+            return BadRequest();
         }
     }
 }
