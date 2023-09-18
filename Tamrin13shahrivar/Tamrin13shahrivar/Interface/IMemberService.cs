@@ -11,6 +11,9 @@ namespace Tamrin13shahrivar.Interface
 
         InstallMents Pay(int code);
 
+        List<InstallMents> GetNoPay(int code);
+        List<InstallMents> GetPay(int code);
+
 
     }
 }

@@ -48,7 +48,7 @@ namespace Tamrin13shahrivar.Repositoreis
             var result = db.LotteryMembers.FirstOrDefault(x => x.CodeMelli == code);
             if (result != null)
             {
-                var find = db.InstallMents.FirstOrDefault(x => x.Code == 0);
+                var find = db.InstallMents.FirstOrDefault(x => x.Code == 0 && x.LotteryMemberId==result.Id);
 
                 if (find != null)
                 {
@@ -64,9 +64,8 @@ namespace Tamrin13shahrivar.Repositoreis
                         NumLottery = find.NumLottery,
                         Code = find.Code
                     };
-
+                    domain.Code = find.Code;
                     // ذخیره اطلاعات در دیتابیس
-                    db.InstallMents.Add(domain);
                     db.SaveChanges();
 
                     return domain;
@@ -75,6 +74,29 @@ namespace Tamrin13shahrivar.Repositoreis
 
             return null;
         }
+        public List<InstallMents> GetNoPay(int code)
+        {
+            var result = db.LotteryMembers.FirstOrDefault(x => x.CodeMelli == code);
+            if (result != null)
+            {
+                var noPayInstallments = db.InstallMents.Where(x => x.Code == 0 && x.LotteryMemberId == result.Id).ToList();
+
+                return noPayInstallments;
+            }
+            return null; // در صورتی که هیچ کاربری با کد ملی مورد نظر پیدا نشود.
+        }
+        public List<InstallMents> GetPay(int code)
+        {
+            var result = db.LotteryMembers.FirstOrDefault(x => x.CodeMelli == code);
+            if (result != null)
+            {
+                var YesPayInstallments = db.InstallMents.Where(x => x.Code > 0 && x.LotteryMemberId == result.Id).ToList();
+
+                return YesPayInstallments;
+            }
+            return null; // در صورتی که هیچ کاربری با کد ملی مورد نظر پیدا نشود.
+        }
+
 
     }
 }

@@ -52,7 +52,34 @@ namespace Tamrin13shahrivar.Controllers
         [HttpPut("pay")]
         public async Task<IActionResult> pay(int code)
         {
-            return Ok(memberService.Pay(code));
+            var result = memberService.Pay(code);
+           if(result != null)
+            {
+                return Ok(result);
+            }
+           return BadRequest("این مقدار وجود ندارد یا قسط ها پرداخت شده است");
+            
+        }
+        [HttpPut("GetNoPay")]
+        public async Task<IActionResult> GetNoPay(int code)
+        {
+            var result = memberService.GetNoPay(code);
+            if(result != null)
+            {
+                return Ok(result);
+            }
+            return BadRequest("این مقدار وجود ندارد");
+        }
+
+        [HttpPut("GetPay")]
+        public async Task<IActionResult> GetPay(int code)
+        {
+            var result = memberService.GetPay(code);
+            if(result != null)
+            {
+                return Ok(result);
+            }
+            return BadRequest("این مقدار وجود ندارد!!!");
         }
     }
 }

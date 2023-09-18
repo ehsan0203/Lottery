@@ -85,6 +85,16 @@ namespace Tamrin13shahrivar.Services
             return repo.Delete(id);
         }
 
+        public List<InstallMents> GetNoPay(int code)
+        {
+            return repoInstallment.GetNoPay(code);
+        }
+
+        public List<InstallMents> GetPay(int code)
+        {
+           return repoInstallment.GetPay(code);
+        }
+
         public InstallMents Pay(int code)
         {
             return repoInstallment.Pay(code);
