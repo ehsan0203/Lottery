@@ -48,5 +48,11 @@ namespace Tamrin13shahrivar.Controllers
         {
             return Ok(memberService.FindWinner(id));
         }
+
+        [HttpPut("pay")]
+        public async Task<IActionResult> pay(int code)
+        {
+            return Ok(memberService.Pay(code));
+        }
     }
 }

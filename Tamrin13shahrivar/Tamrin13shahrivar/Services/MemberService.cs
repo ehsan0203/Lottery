@@ -85,9 +85,16 @@ namespace Tamrin13shahrivar.Services
             return repo.Delete(id);
         }
 
+        public InstallMents Pay(int code)
+        {
+            return repoInstallment.Pay(code);
+        }
+
         List<Winner> IMemberService.FindWinner(int lotteryId)
         {
             return repo.RunMonthlyLottery(lotteryId);
         }
+
+
     }
 }

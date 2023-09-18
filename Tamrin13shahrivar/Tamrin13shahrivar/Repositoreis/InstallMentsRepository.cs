@@ -1,4 +1,5 @@
-﻿using Tamrin13shahrivar.Date;
+﻿using Microsoft.AspNetCore.Mvc;
+using Tamrin13shahrivar.Date;
 using Tamrin13shahrivar.Model;
 
 namespace Tamrin13shahrivar.Repositoreis
@@ -31,5 +32,49 @@ namespace Tamrin13shahrivar.Repositoreis
             db.SaveChanges() ;
             return result;
         }
+        //[HttpGet]
+        //public IHttpActionResult GetRandomNumber()
+        //{
+        //    // ایجاد یک نمونه از کلاس Random
+        //    Random random = new Random();
+
+        //    // تولید یک عدد رندم 7 رقمی
+        //    int randomNumber = random.Next(1000000, 9999999);
+
+        //    return Ok(randomNumber);
+        //}
+        public InstallMents Pay(int code)
+        {
+            var result = db.LotteryMembers.FirstOrDefault(x => x.CodeMelli == code);
+            if (result != null)
+            {
+                var find = db.InstallMents.FirstOrDefault(x => x.Code == 0);
+
+                if (find != null)
+                {
+                    Random random = new Random();
+                    int randomTrackingCode = random.Next(10000000, 99999999);
+                    find.Code = randomTrackingCode;
+
+                    var domain = new InstallMents
+                    {
+                        DateLottery = find.DateLottery,
+                        LotteryMemberId = find.LotteryMemberId,
+                        Mount = find.Mount,
+                        NumLottery = find.NumLottery,
+                        Code = find.Code
+                    };
+
+                    // ذخیره اطلاعات در دیتابیس
+                    db.InstallMents.Add(domain);
+                    db.SaveChanges();
+
+                    return domain;
+                }
+            }
+
+            return null;
+        }
+
     }
 }
