@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Tamrin13shahrivar.Date;
 using Tamrin13shahrivar.Interface;
@@ -10,6 +11,7 @@ namespace Tamrin13shahrivar.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class LotteryController : ControllerBase
     {
         private readonly ILottoryService _lottoryService;
@@ -19,6 +21,7 @@ namespace Tamrin13shahrivar.Controllers
             _lottoryService = new LotteryService(db);
         }
         [HttpPost("Create")]
+        [Authorize]
         public async Task<IActionResult> Creat(LotteryDto lotterydto)
         {
             var domain = new Lottery
@@ -27,8 +30,8 @@ namespace Tamrin13shahrivar.Controllers
                 NumberShares = lotterydto.NumberShares,
                 TitleLottery = lotterydto.TitleLottery
         };
-           _lottoryService.Create(domain);
-                return Ok(lotterydto);
+           ;
+                return Ok(_lottoryService.Create(domain));
         }
         [HttpPut("Update")]
         public async Task<IActionResult> Update(int id,LotteryRequestDto lotteryDto)
